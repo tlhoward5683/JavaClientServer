@@ -141,6 +141,13 @@ public class Server {
                 }
 
                 try {
+                    // Make sure filtered path exists.
+                    File filteredPathDir = new File(filteredPath);
+                    if (!filteredPathDir.exists()) {
+                        filteredPathDir.mkdirs();
+                    }
+
+                    // Create the filtered properties file.
                     File myObj = new File(fileName);
                     myObj.createNewFile();
                 } catch (IOException e) {
